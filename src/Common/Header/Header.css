@@ -1,0 +1,19 @@
+.header{
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    background: linear-gradient(100deg,rgba(165, 42, 136, 0.9) 80%, rgba(176, 89, 156, 0.9) 20%);
+    color: white;
+    box-shadow: 7px 2px 12px 4px rgb(192 159 196 / 52%);
+}
+.header--title{
+    display: flex;
+    margin-right: auto;
+}
+.logo{
+    width: 70px;
+}
+.title{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
