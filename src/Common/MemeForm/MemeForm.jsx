@@ -3,14 +3,25 @@ import memesData from "./memeData"
 import { useState } from "react"
 
 export default function MemeForm(){
-     const [memeImage , setMemeImage] = useState("")
+     const [meme, setMeme] = useState({
+         topText: '',
+         bottomText: '',
+         randomImage: 'https://i.imgflip.com/30b1gx.jpg'
+     })
+
+     const [allMemeImage , setAllMemeImage] = useState(memesData)
+
     const getMeme = () =>{
-        const memes = memesData.data.memes
-        const randomElement = Math.floor(Math.random() * memes.length)
-        const meme = memes[randomElement]
+        const memeImages = allMemeImage.data.memes
+        const randomElement = Math.floor(Math.random() * memeImages.length)
+        const memeImage = memeImages[randomElement]
+        console.log(memeImage)
+        setMeme(prevMeme =>({
+            ...prevMeme,
+            randomImage: memeImage.url
+        }))
         console.log(meme)
-        setMemeImage(meme.url)
-        return memeImage
+        return meme
      }
 
     return(
@@ -32,7 +43,7 @@ export default function MemeForm(){
                 </div>
             </div>
             <div className="meme">
-                <img className="memeImage" src={memeImage} alt="" />
+                <img className="memeImage" src={meme.randomImage} alt="" />
             </div>
         </section>
     )
